@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35219.272
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sistema de Gestión de GQP", "Sistema de Gestión de GQP\Sistema de Gestión de GQP.csproj", "{516949E1-3FBB-43A1-A159-D40AB1E845E5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{516949E1-3FBB-43A1-A159-D40AB1E845E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{516949E1-3FBB-43A1-A159-D40AB1E845E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{516949E1-3FBB-43A1-A159-D40AB1E845E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{516949E1-3FBB-43A1-A159-D40AB1E845E5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {90F90766-9633-41A0-88AC-AECB26284455}
+	EndGlobalSection
+EndGlobal
