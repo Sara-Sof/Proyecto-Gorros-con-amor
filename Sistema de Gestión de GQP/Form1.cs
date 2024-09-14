@@ -15,6 +15,9 @@ namespace Sistema_de_Gestión_de_GQP
         public Form1()
         {
             InitializeComponent();
+            
+            Bitmap img = new Bitmap(Application.StartupPath+@"\img\logo.png");
+            this.BackgroundImage = img;
         }
 
         private void Form1_Load(object sender, EventArgs e)
