@@ -14,11 +14,13 @@ namespace Sistema_de_Gestión_de_GQP
     public partial class Form1 : Form
     {
         private Administrador superUsuario;
+        private Conexion mConexion;
         public Form1()
         {
             InitializeComponent();
 
             superUsuario = Administrador.CrearSuperUsuario();
+            mConexion = new Conexion();
 
             // Bitmap img = new Bitmap(Application.StartupPath+@"\img\logo.png");
             //this.BackgroundImage = img;
@@ -57,6 +59,8 @@ namespace Sistema_de_Gestión_de_GQP
             {
                 MessageBox.Show("Acceso denegado. Usuario o contraseña incorrectos.");
             }
+            Conexion objetoconexion = new Conexion();
+            objetoconexion.establecer_conexion();
         }
 
         private void button2_Click(object sender, EventArgs e) //salir
