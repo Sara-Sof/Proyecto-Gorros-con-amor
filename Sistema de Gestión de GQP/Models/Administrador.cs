@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Sistema_de_Gestión_de_GQP
 {
-    internal class Administrador
+    public class Administrador
     {
         public int idRol { get; set; } //1 para el administrador, 2 para vendedor, 3 para producción
         private string usuario { get; set; }
@@ -18,11 +18,6 @@ namespace Sistema_de_Gestión_de_GQP
             this.idRol = idRol;
             this.usuario = usuario;
             this.contrasena = contrasena;
-        }
-
-        public static Administrador CrearSuperUsuario()
-        {
-           return new Administrador(1, "Maryu", "123");
         }
 
         public bool autentificacion (string nombre, string contraseña)

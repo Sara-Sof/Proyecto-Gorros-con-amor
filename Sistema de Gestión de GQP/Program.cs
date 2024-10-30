@@ -16,7 +16,12 @@ namespace Sistema_de_Gestión_de_GQP
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+
+            Administrador admin = new Administrador(1, "Maryu", "123");
+
+            Application.Run(new Form1(admin));
+
+
         }
     }
 }
