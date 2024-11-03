@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Sistema_de_Gestión_de_GQP
 {
@@ -53,6 +54,7 @@ namespace Sistema_de_Gestión_de_GQP
 
 
                 retorna = command.ExecuteNonQuery();
+
             }
             return retorna;
         }
@@ -82,9 +84,15 @@ namespace Sistema_de_Gestión_de_GQP
 
 
                 retorna = command.ExecuteNonQuery();
+                if (retorna > 0)
+                {
+                    MessageBox.Show("Usuario registrado con éxito.", "Registro Exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
             }
             return retorna;
         }
+
     }
 
 
