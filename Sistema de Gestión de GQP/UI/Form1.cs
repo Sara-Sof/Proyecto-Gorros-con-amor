@@ -14,13 +14,10 @@ namespace Sistema_de_Gestión_de_GQP
     public partial class Form1 : Form
     {
         private Administrador superUsuario;
-        private Conexion mConexion;
+
         public Form1(Administrador admin)
         {
             InitializeComponent();
-
-            
-            mConexion = new Conexion();
 
             this.superUsuario = admin;
 
@@ -54,16 +51,14 @@ namespace Sistema_de_Gestión_de_GQP
                 MessageBox.Show("Acceso concedido. Bienvenida, Maryu.");
 
                 this.Hide();
-                Form3 form3 = new Form3();
-                form3.Show();
+                Form2 form2 = new Form2();
+                form2.Show();
             }
             else
             {
                 MessageBox.Show("Acceso denegado. Usuario o contraseña incorrectos.");
             }
 
-            Conexion objetoconexion = new Conexion();
-            objetoconexion.establecer_conexion();
         }
 
         private void button2_Click(object sender, EventArgs e) //salir

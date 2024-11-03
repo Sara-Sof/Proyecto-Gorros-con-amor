@@ -16,5 +16,10 @@ namespace Sistema_de_Gestión_de_GQP
         {
             InitializeComponent();
         }
+
+        private void Form3_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

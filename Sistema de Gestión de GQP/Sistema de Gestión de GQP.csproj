@@ -54,6 +54,7 @@
     <Compile Include="Models\Conexion.cs" />
     <Compile Include="Models\Administrador.cs" />
     <Compile Include="Models\Produccion.cs" />
+    <Compile Include="Models\Personal.cs" />
     <Compile Include="UI\Form1.cs">
       <SubType>Form</SubType>
     </Compile>

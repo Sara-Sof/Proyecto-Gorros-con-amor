@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,32 +9,54 @@ using MySql.Data.MySqlClient;
 
 namespace Sistema_de_Gestión_de_GQP
 {
-    internal class Conexion
+    public sealed class Conexion
     {
-        MySqlConnection cnx =  new MySqlConnection();
 
-        static  string servidor="localhost";
-        static string bd = "gorros_con_amor";
-        static string usuario = "root";
-        static string password = "enzomilu";
-        static string puerto = "3306";
+        private static Conexion instancia = null;
+        private MySqlConnection conexion;
 
-        private string cadena_conexion = "server = " + servidor + ";"  + "user id = " + usuario + ";" + "password = " +
-            password + ";" + "port = " + puerto + ";" + "database = " + bd + ";" ;
+        private Conexion()
+        {
 
-        public MySqlConnection establecer_conexion() {
-            try
+            string cadenaConexion = "server=localhost;database=gorros_con_amor;uid=root;pwd=enzomilu;";
+            conexion = new MySqlConnection(cadenaConexion);
+        }
+
+        public static Conexion ObtenerInstancia()
+        {
+            if (instancia == null)
             {
-                cnx.ConnectionString = cadena_conexion;
-                cnx.Open();
-                MessageBox.Show("Conexión establecida!");
+                instancia = new Conexion();
+            }
+            return instancia;
+        }
+
+        public MySqlConnection AbrirConexion()
+        {
+            try{
+                if (conexion.State == ConnectionState.Closed)
+                {
+                    conexion.Open();
+                    MessageBox.Show("exito ");
+
+                }
+                return conexion;
+            }
+            catch (MySqlException e){
+            
+                MessageBox.Show("Error al abrir la conexión: " + e.Message);
+                throw; 
+            }
+        }
+
+        public void CerrarConexion()
+        {
+            if (conexion.State == ConnectionState.Open)
+            {
+                conexion.Close();
 
             }
-            catch (MySqlException e)
-            {
-                MessageBox.Show("Error al establecer la conexión. Error: " + e.ToString());
-            }
-            return cnx;
         }
     }
+
 }
