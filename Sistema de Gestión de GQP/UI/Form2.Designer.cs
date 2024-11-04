@@ -32,6 +32,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.buttonCerrarS = new System.Windows.Forms.Button();
             this.panelNuevoUsuario = new System.Windows.Forms.Panel();
+            this.buttonCrear = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.button5 = new System.Windows.Forms.Button();
@@ -52,7 +53,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.buttonCrear = new System.Windows.Forms.Button();
             this.panelNuevoUsuario.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -97,6 +97,7 @@
             this.buttonCerrarS.TabIndex = 2;
             this.buttonCerrarS.Text = "Cerrar sesión";
             this.buttonCerrarS.UseVisualStyleBackColor = false;
+            this.buttonCerrarS.Click += new System.EventHandler(this.buttonCerrarS_Click);
             // 
             // panelNuevoUsuario
             // 
@@ -129,6 +130,19 @@
             this.panelNuevoUsuario.TabStop = true;
             this.panelNuevoUsuario.Visible = false;
             // 
+            // buttonCrear
+            // 
+            this.buttonCrear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.buttonCrear.Font = new System.Drawing.Font("Bookman Old Style", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCrear.Location = new System.Drawing.Point(15, 428);
+            this.buttonCrear.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonCrear.Name = "buttonCrear";
+            this.buttonCrear.Size = new System.Drawing.Size(111, 40);
+            this.buttonCrear.TabIndex = 18;
+            this.buttonCrear.Text = "Registrar";
+            this.buttonCrear.UseVisualStyleBackColor = false;
+            this.buttonCrear.Click += new System.EventHandler(this.buttonCrear_Click);
+            // 
             // label10
             // 
             this.label10.AutoSize = true;
@@ -153,7 +167,7 @@
             // 
             this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.button5.Font = new System.Drawing.Font("Bookman Old Style", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(357, 441);
+            this.button5.Location = new System.Drawing.Point(357, 428);
             this.button5.Margin = new System.Windows.Forms.Padding(2);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(95, 40);
@@ -343,19 +357,6 @@
             this.pictureBox1.Size = new System.Drawing.Size(56, 49);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-            // 
-            // buttonCrear
-            // 
-            this.buttonCrear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.buttonCrear.Font = new System.Drawing.Font("Bookman Old Style", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCrear.Location = new System.Drawing.Point(31, 416);
-            this.buttonCrear.Margin = new System.Windows.Forms.Padding(2);
-            this.buttonCrear.Name = "buttonCrear";
-            this.buttonCrear.Size = new System.Drawing.Size(95, 40);
-            this.buttonCrear.TabIndex = 18;
-            this.buttonCrear.Text = "Salir";
-            this.buttonCrear.UseVisualStyleBackColor = false;
-            this.buttonCrear.Click += new System.EventHandler(this.buttonCrear_Click);
             // 
             // Form2
             // 

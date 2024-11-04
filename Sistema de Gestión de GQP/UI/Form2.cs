@@ -76,28 +76,68 @@ namespace Sistema_de_Gestión_de_GQP
 
         private void buttonCrear_Click(object sender, EventArgs e)
         {
-            rol = comboBox1.SelectedItem.ToString();
+            
+            string rolSeleccionado = comboBox1.SelectedItem.ToString();
 
-            if (rol.Equals("Producción"))
+            
+            nombre = textBox1.Text;
+            cedula = textBox2.Text;
+            celular = textBox3.Text;
+            direccion = textBox4.Text;
+            usuario = textBox5.Text;
+            contrasena = textBox6.Text;
+
+           
+            if (string.IsNullOrWhiteSpace(nombre) || string.IsNullOrWhiteSpace(cedula) ||
+                string.IsNullOrWhiteSpace(celular) || string.IsNullOrWhiteSpace(direccion) ||
+                string.IsNullOrWhiteSpace(usuario) || string.IsNullOrWhiteSpace(contrasena))
             {
-                produccion = new Produccion(1, nombre, cedula, usuario, contrasena, direccion, celular);
-
+                MessageBox.Show("Por favor, complete todos los campos.", "Campos Incompletos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
-            else if (rol.Equals("Vendedor"))
-            {
-                vendedor = new Vendedor(1, nombre, cedula, usuario, contrasena, direccion, celular);
-                int result = Administrador.agregarVendedor(vendedor);
 
-               
+            
+            if (rolSeleccionado.Equals("Producción"))
+            {
+                produccion = new Produccion(3, nombre, cedula, usuario, contrasena, direccion, celular);
+                int result = Administrador.agregarProduccion(produccion);
+
                 if (result > 0)
                 {
-                    MessageBox.Show("siiiiii");
+                    MessageBox.Show("Usuario de Producción creado con éxito.");
+                }
+                else
+                {
+                    MessageBox.Show("Error al crear el usuario de Producción.");
+                }
+            }
+            else if (rolSeleccionado.Equals("Vendedor"))
+            {
+                vendedor = new Vendedor(2, nombre, cedula, usuario, contrasena, direccion, celular);
+                int result = Administrador.agregarVendedor(vendedor);
+
+                if (result > 0)
+                {
+                    MessageBox.Show("Usuario Vendedor creado con éxito.");
+                }
+                else
+                {
+                    MessageBox.Show("Error al crear el usuario Vendedor.");
                 }
             }
             else
             {
-                MessageBox.Show("Por favor ingrese un valor correcto (vendedor/produccion)");
+                MessageBox.Show("Rol no válido. Seleccione Vendedor o Producción.", "Error en Rol", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+       
+
+        private void buttonCerrarS_Click(object sender, EventArgs e)
+        {
+            Form1 form1 = new Form1(administrador2); 
+            form1.Show();
+            this.Hide(); 
         }
     }
 }
