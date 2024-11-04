@@ -27,6 +27,7 @@ namespace Sistema_de_Gestión_de_GQP
 
         private void Form1_Load(object sender, EventArgs e)
         {
+          
 
         }
 

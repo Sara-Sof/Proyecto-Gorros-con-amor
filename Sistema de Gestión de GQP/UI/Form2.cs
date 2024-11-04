@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySqlX.XDevAPI.Common;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -26,15 +27,21 @@ namespace Sistema_de_Gestión_de_GQP
         public Form2()
         {
             InitializeComponent();
+
+            comboBox1.Items.Add("Vendedor");
+            comboBox1.Items.Add("Producción");
+            comboBox1.SelectedIndex = 0;
+
             nombre = textBox1.Text;
             cedula = textBox2.Text;
             celular = textBox3.Text;
             direccion = textBox4.Text;
             usuario = textBox5.Text;
             contrasena = textBox6.Text;
-            //rol = textBox7.Text;
 
-            administrador2 = new Administrador(rol, usuario, contrasena);
+           
+
+
 
         }
 
@@ -49,26 +56,48 @@ namespace Sistema_de_Gestión_de_GQP
 
 
         }
-        private void button4_Click(object sender, EventArgs e)
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (rol.Equals("produccion"))
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            
+            panelNuevoUsuario.Visible = false; 
+           
+        }
+
+        private void Form2_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonCrear_Click(object sender, EventArgs e)
+        {
+            rol = comboBox1.SelectedItem.ToString();
+
+            if (rol.Equals("Producción"))
             {
                 produccion = new Produccion(1, nombre, cedula, usuario, contrasena, direccion, celular);
 
-
             }
-           else if (rol.Equals("vendedor"))
+            else if (rol.Equals("Vendedor"))
             {
                 vendedor = new Vendedor(1, nombre, cedula, usuario, contrasena, direccion, celular);
-                administrador2.agregarVendedor(vendedor);
+                int result = Administrador.agregarVendedor(vendedor);
 
-
+               
+                if (result > 0)
+                {
+                    MessageBox.Show("siiiiii");
+                }
             }
             else
             {
                 MessageBox.Show("Por favor ingrese un valor correcto (vendedor/produccion)");
             }
-
         }
     }
 }
