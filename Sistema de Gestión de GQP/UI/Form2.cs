@@ -32,12 +32,6 @@ namespace Sistema_de_Gestión_de_GQP
             comboBox1.Items.Add("Producción");
             comboBox1.SelectedIndex = 0;
 
-            nombre = textBox1.Text;
-            cedula = textBox2.Text;
-            celular = textBox3.Text;
-            direccion = textBox4.Text;
-            usuario = textBox5.Text;
-            contrasena = textBox6.Text;
 
            
 
