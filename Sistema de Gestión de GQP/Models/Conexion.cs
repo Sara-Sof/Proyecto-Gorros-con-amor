@@ -37,6 +37,7 @@ namespace Sistema_de_Gestión_de_GQP
                 if (conexion.State == ConnectionState.Closed)
                 {
                     conexion.Open();
+                    MessageBox.Show("exito ");
 
                 }
                 return conexion;

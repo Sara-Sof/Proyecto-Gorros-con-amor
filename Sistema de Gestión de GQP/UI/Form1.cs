@@ -14,6 +14,8 @@ namespace Sistema_de_Gestión_de_GQP
     public partial class Form1 : Form
     {
         private Administrador superUsuario;
+        private Form2 form2;
+        
 
         public Form1(Administrador admin)
         {
@@ -65,6 +67,32 @@ namespace Sistema_de_Gestión_de_GQP
         private void button2_Click(object sender, EventArgs e) //salir
         {
             this.Close(); 
+        }
+        private void buttonCerrarS_Click(object sender, EventArgs e) // regresar a Form2
+        {
+            if (form2 == null || form2.IsDisposed)
+            {
+                form2 = new Form2();
+            }
+            form2.Show();
+            this.Hide(); // Opcional: Ocultar Form1 si deseas
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+            if (textBox2.PasswordChar == '❤') 
+            {
+                // Muestra el texto real
+                textBox2.PasswordChar = '\0';
+                button4.Text = "Ocultar";
+            }
+            else
+            {
+                // Vuelve a ocultar el texto
+                textBox2.PasswordChar = '❤';
+                button4.Text = "Mostrar";
+            }
         }
     }
 }
