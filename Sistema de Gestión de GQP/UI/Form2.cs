@@ -77,6 +77,12 @@ namespace Sistema_de_Gestión_de_GQP
         private void buttonCrear_Click(object sender, EventArgs e)
         {
             rol = comboBox1.SelectedItem.ToString();
+            nombre = textBox1.Text;
+            cedula = textBox2.Text;
+            celular = textBox3.Text;
+            direccion = textBox4.Text;
+            usuario = textBox5.Text;
+            contrasena = textBox6.Text;
 
             if (rol.Equals("Producción"))
             {
@@ -86,12 +92,16 @@ namespace Sistema_de_Gestión_de_GQP
             else if (rol.Equals("Vendedor"))
             {
                 vendedor = new Vendedor(1, nombre, cedula, usuario, contrasena, direccion, celular);
+
+                MessageBox.Show("a" + rol + nombre + cedula + usuario + contrasena + direccion + celular);
+
                 int result = Administrador.agregarVendedor(vendedor);
 
-               
+
+
                 if (result > 0)
                 {
-                    MessageBox.Show("siiiiii");
+                    MessageBox.Show("siiiiii"+ rol +  nombre + cedula + usuario + contrasena + direccion + celular);
                 }
             }
             else
