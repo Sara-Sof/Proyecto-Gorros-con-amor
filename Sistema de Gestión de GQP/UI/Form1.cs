@@ -48,7 +48,9 @@ namespace Sistema_de_Gestión_de_GQP
         private void button1_Click(object sender, EventArgs e) //ingresar
         {
              usuario = textBox1.Text;
-             contrasena = textBox2.Text;
+            Console.WriteLine("usuario form1" + usuario);
+
+            contrasena = textBox2.Text;
 
             // Validar las credenciales
             if (superUsuario.autentificacion(usuario, contrasena) == 1 || superUsuario.autentificacion(usuario, contrasena) == 2 ||

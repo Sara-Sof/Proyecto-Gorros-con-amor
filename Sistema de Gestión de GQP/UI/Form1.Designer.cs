@@ -40,13 +40,13 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.PANEL_BIENVENIDO = new System.Windows.Forms.Panel();
+            this.labelBienvenida = new System.Windows.Forms.Label();
             this.boton_Gracias = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.directorySearcher1 = new System.DirectoryServices.DirectorySearcher();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.button4 = new System.Windows.Forms.Button();
-            this.labelBienvenida = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -161,11 +161,19 @@
             this.PANEL_BIENVENIDO.Controls.Add(this.labelBienvenida);
             this.PANEL_BIENVENIDO.Controls.Add(this.boton_Gracias);
             this.PANEL_BIENVENIDO.Controls.Add(this.label3);
-            this.PANEL_BIENVENIDO.Location = new System.Drawing.Point(89, 60);
+            this.PANEL_BIENVENIDO.Location = new System.Drawing.Point(87, 65);
             this.PANEL_BIENVENIDO.Margin = new System.Windows.Forms.Padding(2);
             this.PANEL_BIENVENIDO.Name = "PANEL_BIENVENIDO";
             this.PANEL_BIENVENIDO.Size = new System.Drawing.Size(389, 392);
             this.PANEL_BIENVENIDO.TabIndex = 8;
+            // 
+            // labelBienvenida
+            // 
+            this.labelBienvenida.AutoSize = true;
+            this.labelBienvenida.Location = new System.Drawing.Point(18, 367);
+            this.labelBienvenida.Name = "labelBienvenida";
+            this.labelBienvenida.Size = new System.Drawing.Size(0, 13);
+            this.labelBienvenida.TabIndex = 2;
             // 
             // boton_Gracias
             // 
@@ -219,14 +227,6 @@
             this.button4.Text = "Ver";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // labelBienvenida
-            // 
-            this.labelBienvenida.AutoSize = true;
-            this.labelBienvenida.Location = new System.Drawing.Point(18, 367);
-            this.labelBienvenida.Name = "labelBienvenida";
-            this.labelBienvenida.Size = new System.Drawing.Size(0, 13);
-            this.labelBienvenida.TabIndex = 2;
             // 
             // Form1
             // 

@@ -50,23 +50,48 @@ namespace Sistema_de_Gestión_de_GQP
             else {
                 foreach (Personal personal in personal_List)
                 {
+                    Console.WriteLine("recorriendo list");
+                    Console.WriteLine(personal.usuario);
+                    Console.WriteLine(nombre + " " + contraseña);
+                    Console.WriteLine(personal.contrasena);
+
+                    byte[] personalBytes = Encoding.UTF8.GetBytes(personal.contrasena);
+                    byte[] inputBytes = Encoding.UTF8.GetBytes(contrasena);
+
+                    Console.WriteLine($"Bytes de personal.contrasena: {BitConverter.ToString(personalBytes)}");
+                    Console.WriteLine($"Bytes de contrasena: {BitConverter.ToString(inputBytes)}");
+
+
+
                     if (personal.usuario == nombre)
                     {
-                        if (personal.contrasena == contrasena)
+                        Console.WriteLine("user encontrado");
+
+                        if (personal.contrasena.Trim() == contrasena.Trim())
+
                         {
+                            Console.WriteLine("entro contreseña == contraseña");
                             if(personal.idRol == 2)
                             {
+                                Console.WriteLine("rol 2");
+
                                 return 2;
 
-                            }else
+                                break;
+
+
+                            }
+                            else
                             {
+                                Console.WriteLine("rol 3");
+
                                 return 3;
 
                             }
 
                             break;
                         }
-              
+                        break;
 
                     } 
 
