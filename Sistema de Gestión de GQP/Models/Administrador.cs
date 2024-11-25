@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -16,17 +17,26 @@ namespace Sistema_de_Gestión_de_GQP
         private string usuario { get; set; }
         private string contrasena { get; set; }
 
+        private bool seguirEjecutando = true;
+        private List<Personal> personal_List;
+
 
         public Administrador(int idRol, string usuario, string contrasena)
         {
             this.idRol = idRol;
             this.usuario = usuario;
             this.contrasena = contrasena;
+
+            personal_List = new List<Personal>();
+
+
         }
 
         public bool autentificacion(string nombre, string contraseña)
         {
-            return usuario == nombre && contrasena == contraseña;
+          
+                return usuario == nombre && contrasena == contraseña;
+          
         }
 
         public static int agregarVendedor(Vendedor vendedor)
@@ -38,7 +48,7 @@ namespace Sistema_de_Gestión_de_GQP
             {
                 
                 string query = "INSERT INTO vendedores (nombre_completo, cedula, telefono, direccion, usuario, contrasena, rol_id) " +
-                               "VALUES (@NombreCompleto, @Cedula, @Telefono, @Direccion, @Usuario, SHA2(@Contrasena, 256), @RolId)";
+                               "VALUES (@NombreCompleto, @Cedula, @Telefono, @Direccion, @Usuario,@Contrasena, @RolId)";
 
                 using (MySqlCommand command = new MySqlCommand(query, conexionDB))
                 {
@@ -79,7 +89,7 @@ namespace Sistema_de_Gestión_de_GQP
             {
                 
                 string query = "INSERT INTO usuarios_produccion (nombre_completo, cedula, telefono, direccion, usuario, contrasena, rol_id) " +
-                               "VALUES (@NombreCompleto, @Cedula, @Telefono, @Direccion, @Usuario, SHA2(@Contrasena, 256), @RolId)";
+                               "VALUES (@NombreCompleto, @Cedula, @Telefono, @Direccion, @Usuario, @Contrasena, @RolId)";
 
                 using (MySqlCommand command = new MySqlCommand(query, conexionDB))
                 {
@@ -111,17 +121,42 @@ namespace Sistema_de_Gestión_de_GQP
             return retorna;
         }
 
-        public static List<Personal> registro()
+        public void IniciarHiloRevisarBD()
         {
-            List<Personal> personal_List = new List<Personal>();
+            Thread hiloRevisar = new Thread(() =>
+            {
+                while (seguirEjecutando)
+                {
+                    // Llama al método registro() para actualizar la lista
+                    List<Personal> nuevaLista = registro();
+                    personal_List = nuevaLista;
+
+                    Console.WriteLine("Base de datos revisada. Total registros: " + personal_List.Count);
+
+                    // Espera 5 segundos antes de la siguiente revisión
+                    Thread.Sleep(5000);
+                }
+            });
+
+            hiloRevisar.IsBackground = true; // Para que no bloquee el cierre del programa
+            hiloRevisar.Start();
+        }
+
+        public void DetenerHilo()
+        {
+            seguirEjecutando = false; // Detener el bucle en el hilo
+        }
+
+        public List<Personal> registro()
+        {
             Conexion conexion = Conexion.ObtenerInstancia();
 
             try{ 
                 using (var conexionDB = conexion.AbrirConexion())
                 {
-                    string query = "SELECT * FROM vendedores";
+                    string queryVendores = "SELECT * FROM vendedores";
 
-                    using (MySqlCommand command = new MySqlCommand(query, conexionDB))
+                    using (MySqlCommand command = new MySqlCommand(queryVendores, conexionDB))
                     {
                         using (MySqlDataReader reader = command.ExecuteReader())
                         {
@@ -141,7 +176,33 @@ namespace Sistema_de_Gestión_de_GQP
                             }
                         }
                     }
+
+                    string queryProduccion = "SELECT * FROM usuarios_produccion";
+
+                    using (MySqlCommand commandP = new MySqlCommand(queryProduccion, conexionDB)) //Agregamos los datos de la tabla "usuarios_produccion"
+                    {
+                        using (MySqlDataReader reader = commandP.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                Personal personalProduccion = new Personal(
+                                reader.GetInt32(7),
+                                reader.GetString(1),
+                                reader.GetString(2),
+                                reader.GetString(5),
+                                reader.GetString(6),
+                                reader.GetString(4),
+                                reader.GetString(3)
+                                );
+
+                                personal_List.Add(personalProduccion);
+                            }
+                        }
+                    }
+                    conexion.CerrarConexion(conexionDB);
+
                 }
+                MessageBox.Show("exitooooooo");
 
             }
             catch(Exception ex)

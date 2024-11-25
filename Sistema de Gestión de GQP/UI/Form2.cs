@@ -89,6 +89,7 @@ namespace Sistema_de_Gestión_de_GQP
             else if (rolSeleccionado.Equals("Producción"))
             {
                 produccion = new Produccion(3, nombre, cedula, usuario, contrasena, direccion, celular);
+                Console.WriteLine(produccion);
                 int result = Administrador.agregarProduccion(produccion);
                 contador = 1;
                

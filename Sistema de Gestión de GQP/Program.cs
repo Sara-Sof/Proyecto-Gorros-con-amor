@@ -19,6 +19,9 @@ namespace Sistema_de_Gestión_de_GQP
 
             Administrador admin = new Administrador(1, "Maryu", "123");
 
+            
+            admin.IniciarHiloRevisarBD();
+
             Application.Run(new Form1(admin));
 
 

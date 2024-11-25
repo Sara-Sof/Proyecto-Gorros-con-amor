@@ -13,48 +13,53 @@ namespace Sistema_de_Gestión_de_GQP
     {
 
         private static Conexion instancia = null;
-        private MySqlConnection conexion;
+        private static readonly object lockObj = new object();
+        private string cadenaConexion;
 
         private Conexion()
         {
-
-            string cadenaConexion = "server=localhost;database=gorros_con_amor;uid=root;pwd=enzomilu;";
-            conexion = new MySqlConnection(cadenaConexion);
+            cadenaConexion = "server=localhost;database=gorros_con_amor;uid=root;pwd=enzomilu;";
         }
 
+        // Patrón Singleton con bloqueo seguro para hilos múltiples
         public static Conexion ObtenerInstancia()
         {
             if (instancia == null)
             {
-                instancia = new Conexion();
+                lock (lockObj)
+                {
+                    if (instancia == null)
+                    {
+                        instancia = new Conexion();
+                    }
+                }
             }
             return instancia;
         }
 
+        // Método para abrir una nueva conexión cada vez
         public MySqlConnection AbrirConexion()
         {
-            try{
-                if (conexion.State == ConnectionState.Closed)
-                {
-                    conexion.Open();
-                    MessageBox.Show("exito ");
-
-                }
-                return conexion;
+            MySqlConnection nuevaConexion = new MySqlConnection(cadenaConexion);
+            try
+            {
+                nuevaConexion.Open();
+                return nuevaConexion;
             }
-            catch (MySqlException e){
-            
-                MessageBox.Show("Error al abrir la conexión: " + e.Message);
-                throw; 
+            catch (MySqlException e)
+            {
+                // Manejo de excepciones mejorado
+                throw new Exception("Error al abrir la conexión: " + e.Message, e);
             }
         }
 
-        public void CerrarConexion()
+        // Método para cerrar la conexión específica
+        public void CerrarConexion(MySqlConnection conexion)
         {
-            if (conexion.State == ConnectionState.Open)
+            if (conexion != null && conexion.State == ConnectionState.Open)
             {
                 conexion.Close();
-
+                conexion.Dispose();
             }
         }
     }

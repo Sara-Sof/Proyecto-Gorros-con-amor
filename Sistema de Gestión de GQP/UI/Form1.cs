@@ -61,6 +61,7 @@ namespace Sistema_de_Gestión_de_GQP
             {
                 MessageBox.Show("Acceso denegado. Usuario o contraseña incorrectos.");
             }
+            Console.WriteLine("holaaa");
 
         }
 
@@ -93,6 +94,14 @@ namespace Sistema_de_Gestión_de_GQP
                 textBox2.PasswordChar = '❤';
                 button4.Text = "Mostrar";
             }
+        }
+
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            base.OnFormClosing(e);
+
+            // Detiene el hilo al cerrar la aplicación
+            superUsuario.DetenerHilo();
         }
     }
 }

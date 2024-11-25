@@ -15,6 +15,17 @@ namespace Sistema_de_Gestión_de_GQP
         {
             
         }
-        
+
+        public override string ToString()
+        {
+            return $"ID Rol: {idRol}\n" +
+                   $"Nombre: {nombre}\n" +
+                   $"Cédula: {cedula}\n" +
+                   $"Usuario: {usuario}\n" +
+                   $"Contraseña: {contrasena}\n" +
+                   $"Dirección: {direccion}\n" +
+                   $"Celular: {celular}";
+        }
+
     }
 }
