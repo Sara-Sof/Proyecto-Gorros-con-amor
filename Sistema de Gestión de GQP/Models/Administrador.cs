@@ -32,11 +32,49 @@ namespace Sistema_de_Gestión_de_GQP
 
         }
 
-        public bool autentificacion(string nombre, string contraseña)
+        public int autentificacion(string nombre, string contraseña)
         {
-          
-                return usuario == nombre && contrasena == contraseña;
-          
+            
+            if (usuario == nombre) {
+                if (contrasena == contraseña)
+                {
+                    return 1; // Acceso permitido
+                }
+                else
+                {
+                    MessageBox.Show("Acceso denegado. Contraseña incorrecta.");
+                    return 0; // 0 para el acceso denegado
+                }
+
+            }
+            else {
+                foreach (Personal personal in personal_List)
+                {
+                    if (personal.usuario == nombre)
+                    {
+                        if (personal.contrasena == contrasena)
+                        {
+                            if(personal.idRol == 2)
+                            {
+                                return 2;
+
+                            }else
+                            {
+                                return 3;
+
+                            }
+
+                            break;
+                        }
+              
+
+                    } 
+
+                }
+            }       
+                return 0;  
+
+
         }
 
         public static int agregarVendedor(Vendedor vendedor)
@@ -150,8 +188,10 @@ namespace Sistema_de_Gestión_de_GQP
         public List<Personal> registro()
         {
             Conexion conexion = Conexion.ObtenerInstancia();
+            personal_List.Clear();
 
-            try{ 
+            try
+            { 
                 using (var conexionDB = conexion.AbrirConexion())
                 {
                     string queryVendores = "SELECT * FROM vendedores";
@@ -196,13 +236,15 @@ namespace Sistema_de_Gestión_de_GQP
                                 );
 
                                 personal_List.Add(personalProduccion);
+
                             }
                         }
                     }
+                    ImprimirListaEnConsola();
                     conexion.CerrarConexion(conexionDB);
 
                 }
-                MessageBox.Show("exitooooooo");
+                Console.WriteLine("éxitooooooo");
 
             }
             catch(Exception ex)
@@ -214,6 +256,16 @@ namespace Sistema_de_Gestión_de_GQP
             return personal_List;
         
         }
+        public void ImprimirListaEnConsola()
+        {
+            foreach (Personal personal in personal_List)
+            {
+                // Imprime las propiedades del objeto Personal
+                Console.WriteLine($"Nombre: {personal.nombre}, Usuario: {personal.usuario}, Contraseña: {personal.contrasena}");
+            }
+        }
+
+
 
     }
 }

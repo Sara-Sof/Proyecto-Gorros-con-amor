@@ -15,6 +15,8 @@ namespace Sistema_de_Gestión_de_GQP
     {
         private Administrador superUsuario;
         private Form2 form2;
+        private string usuario;
+        private string contrasena;
         
 
         public Form1(Administrador admin)
@@ -24,8 +26,7 @@ namespace Sistema_de_Gestión_de_GQP
             this.superUsuario = admin;
             PANEL_BIENVENIDO.Visible = false;
 
-            // Bitmap img = new Bitmap(Application.StartupPath+@"\img\logo.png");
-            //this.BackgroundImage = img;
+            
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -46,11 +47,12 @@ namespace Sistema_de_Gestión_de_GQP
 
         private void button1_Click(object sender, EventArgs e) //ingresar
         {
-            string usuario = textBox1.Text;
-            string contrasena = textBox2.Text;
+             usuario = textBox1.Text;
+             contrasena = textBox2.Text;
 
             // Validar las credenciales
-            if (superUsuario.autentificacion(usuario, contrasena))
+            if (superUsuario.autentificacion(usuario, contrasena) == 1 || superUsuario.autentificacion(usuario, contrasena) == 2 ||
+                superUsuario.autentificacion(usuario, contrasena) == 3)
             {
                 PANEL_BIENVENIDO.Visible = true;
                 labelBienvenida.Text = $"¡Bienvenido, {usuario}!";
@@ -59,7 +61,7 @@ namespace Sistema_de_Gestión_de_GQP
             {
                 MessageBox.Show("Acceso denegado. Usuario o contraseña incorrectos.");
             }
-            Console.WriteLine("holaaa");
+            
 
         }
 
@@ -106,8 +108,25 @@ namespace Sistema_de_Gestión_de_GQP
         {
 
             PANEL_BIENVENIDO.Visible = false;
-            Form2 form2 = new Form2();
-            form2.Show();
+            if(superUsuario.autentificacion(usuario, contrasena) == 1)
+            {
+                Form2 form2 = new Form2();
+                this.Hide();
+                form2.Show();
+            }else if (superUsuario.autentificacion(usuario, contrasena) == 2)
+            {
+                Form3 form3 = new Form3();
+                this.Hide();
+
+                form3.Show();
+            }else
+            {
+                Form4 form4 = new Form4();
+                this.Hide();
+
+                form4.Show();
+            }
+            
         }
     }
 }

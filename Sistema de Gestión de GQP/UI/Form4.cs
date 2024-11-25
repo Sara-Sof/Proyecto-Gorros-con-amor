@@ -54,16 +54,21 @@ namespace Sistema_de_Gestión_de_GQP
                 int mes = int.Parse(textBox_mes.Text);
                 int año = int.Parse(textBox_año.Text);
                 DateTime fechaPedido;
+                byte[] imagenProducto = null;
+
 
                 if (!DateTime.TryParse($"{año}-{mes}-{dia}", out fechaPedido))
                 {
                     MessageBox.Show("Por favor, ingrese una fecha válida.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
+                else if (string.IsNullOrWhiteSpace(nombreCliente) || cantidadProducto <= 0 || precioUnidad <= 0)
+                {
+                    MessageBox.Show("Por favor, complete todos los campos obligatorios correctamente.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
 
-               
-                byte[] imagenProducto = null;
-                if (pictureBox_imagen.Image != null)
+                else if (pictureBox_imagen.Image != null)
                 {
                     using (MemoryStream ms = new MemoryStream())
                     {
@@ -73,11 +78,7 @@ namespace Sistema_de_Gestión_de_GQP
                 }
 
                 
-                if (string.IsNullOrWhiteSpace(nombreCliente) || cantidadProducto <= 0 || precioUnidad <= 0)
-                {
-                    MessageBox.Show("Por favor, complete todos los campos obligatorios correctamente.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
+                
 
                 int idRol = 1;
                 string nombre = "";
