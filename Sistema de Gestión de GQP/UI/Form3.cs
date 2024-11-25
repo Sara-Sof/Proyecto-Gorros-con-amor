@@ -21,5 +21,11 @@ namespace Sistema_de_Gestión_de_GQP
         {
 
         }
+
+        private void button_venta_Click(object sender, EventArgs e)
+        {
+            Form4 form4 = new Form4();
+            form4.Show();
+        }
     }
 }

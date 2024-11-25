@@ -39,18 +39,18 @@
             this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
+            this.PANEL_BIENVENIDO = new System.Windows.Forms.Panel();
+            this.boton_Gracias = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.directorySearcher1 = new System.DirectoryServices.DirectorySearcher();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.button4 = new System.Windows.Forms.Button();
+            this.labelBienvenida = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            this.panel1.SuspendLayout();
+            this.PANEL_BIENVENIDO.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -137,7 +137,6 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.panel2.Controls.Add(this.pictureBox2);
-            this.panel2.Controls.Add(this.panel1);
             this.panel2.Location = new System.Drawing.Point(-1, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
@@ -155,29 +154,31 @@
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
             // 
-            // panel1
+            // PANEL_BIENVENIDO
             // 
-            this.panel1.BackgroundImage = global::Sistema_de_Gestión_de_GQP.Properties.Resources.KUROMI;
-            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panel1.Controls.Add(this.button3);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Location = new System.Drawing.Point(156, -21);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(262, 220);
-            this.panel1.TabIndex = 8;
+            this.PANEL_BIENVENIDO.BackgroundImage = global::Sistema_de_Gestión_de_GQP.Properties.Resources.KUROMI;
+            this.PANEL_BIENVENIDO.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.PANEL_BIENVENIDO.Controls.Add(this.labelBienvenida);
+            this.PANEL_BIENVENIDO.Controls.Add(this.boton_Gracias);
+            this.PANEL_BIENVENIDO.Controls.Add(this.label3);
+            this.PANEL_BIENVENIDO.Location = new System.Drawing.Point(89, 60);
+            this.PANEL_BIENVENIDO.Margin = new System.Windows.Forms.Padding(2);
+            this.PANEL_BIENVENIDO.Name = "PANEL_BIENVENIDO";
+            this.PANEL_BIENVENIDO.Size = new System.Drawing.Size(389, 392);
+            this.PANEL_BIENVENIDO.TabIndex = 8;
             // 
-            // button3
+            // boton_Gracias
             // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.button3.Font = new System.Drawing.Font("Bookman Old Style", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(176, 110);
-            this.button3.Margin = new System.Windows.Forms.Padding(2);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(74, 35);
-            this.button3.TabIndex = 1;
-            this.button3.Text = "Salir";
-            this.button3.UseVisualStyleBackColor = false;
+            this.boton_Gracias.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.boton_Gracias.Font = new System.Drawing.Font("Bookman Old Style", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.boton_Gracias.Location = new System.Drawing.Point(271, 349);
+            this.boton_Gracias.Margin = new System.Windows.Forms.Padding(2);
+            this.boton_Gracias.Name = "boton_Gracias";
+            this.boton_Gracias.Size = new System.Drawing.Size(116, 41);
+            this.boton_Gracias.TabIndex = 1;
+            this.boton_Gracias.Text = "¡ GRACIAS !";
+            this.boton_Gracias.UseVisualStyleBackColor = false;
+            this.boton_Gracias.Click += new System.EventHandler(this.boton_Gracias_Click);
             // 
             // label3
             // 
@@ -185,7 +186,7 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Palatino Linotype", 25.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label3.Location = new System.Drawing.Point(1, 26);
+            this.label3.Location = new System.Drawing.Point(67, 0);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(246, 47);
@@ -209,16 +210,6 @@
             this.directorySearcher1.ServerPageTimeLimit = System.TimeSpan.Parse("-00:00:01");
             this.directorySearcher1.ServerTimeLimit = System.TimeSpan.Parse("-00:00:01");
             // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(0, 0);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(80, 17);
-            this.checkBox1.TabIndex = 10;
-            this.checkBox1.Text = "checkBox1";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            // 
             // button4
             // 
             this.button4.Location = new System.Drawing.Point(388, 277);
@@ -229,13 +220,21 @@
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
+            // labelBienvenida
+            // 
+            this.labelBienvenida.AutoSize = true;
+            this.labelBienvenida.Location = new System.Drawing.Point(18, 367);
+            this.labelBienvenida.Name = "labelBienvenida";
+            this.labelBienvenida.Size = new System.Drawing.Size(0, 13);
+            this.labelBienvenida.TabIndex = 2;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(547, 489);
+            this.Controls.Add(this.PANEL_BIENVENIDO);
             this.Controls.Add(this.button4);
-            this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.textBox2);
@@ -250,8 +249,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).EndInit();
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.PANEL_BIENVENIDO.ResumeLayout(false);
+            this.PANEL_BIENVENIDO.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -268,16 +267,16 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Panel PANEL_BIENVENIDO;
+        private System.Windows.Forms.Button boton_Gracias;
         private System.Windows.Forms.Label label3;
         private System.IO.FileSystemWatcher fileSystemWatcher1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.DirectoryServices.DirectorySearcher directorySearcher1;
-        private System.Windows.Forms.CheckBox checkBox1;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Label labelBienvenida;
     }
 }
 

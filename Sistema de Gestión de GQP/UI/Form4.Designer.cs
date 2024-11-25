@@ -32,17 +32,23 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.textBox_cliente = new System.Windows.Forms.TextBox();
+            this.textBox_cantidad = new System.Windows.Forms.TextBox();
+            this.textBox_unidad = new System.Windows.Forms.TextBox();
+            this.textBox_total = new System.Windows.Forms.TextBox();
+            this.textBox_dia = new System.Windows.Forms.TextBox();
+            this.textBox_mes = new System.Windows.Forms.TextBox();
+            this.textBox_año = new System.Windows.Forms.TextBox();
+            this.Registrar_pedido = new System.Windows.Forms.Button();
+            this.button_SALIR = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.richTextBox_detalles = new System.Windows.Forms.RichTextBox();
+            this.pictureBox_imagen = new System.Windows.Forms.PictureBox();
+            this.button_imagen = new System.Windows.Forms.Button();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_imagen)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -50,9 +56,10 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Bookman Old Style", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(132, 28);
+            this.label1.Location = new System.Drawing.Point(176, 19);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(92, 24);
+            this.label1.Size = new System.Drawing.Size(73, 19);
             this.label1.TabIndex = 0;
             this.label1.Text = "Cliente:";
             // 
@@ -61,9 +68,10 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Bookman Old Style", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(132, 84);
+            this.label2.Location = new System.Drawing.Point(176, 64);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(125, 24);
+            this.label2.Size = new System.Drawing.Size(98, 19);
             this.label2.TabIndex = 1;
             this.label2.Text = "Cantidad: ";
             // 
@@ -72,9 +80,10 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Bookman Old Style", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(132, 148);
+            this.label3.Location = new System.Drawing.Point(176, 116);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(74, 24);
+            this.label3.Size = new System.Drawing.Size(60, 19);
             this.label3.TabIndex = 2;
             this.label3.Text = "Total:";
             // 
@@ -83,129 +92,179 @@
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Bookman Old Style", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(132, 216);
+            this.label4.Location = new System.Drawing.Point(176, 172);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(87, 24);
+            this.label4.Size = new System.Drawing.Size(70, 19);
             this.label4.TabIndex = 3;
             this.label4.Text = "Fecha: ";
             // 
-            // label5
+            // textBox_cliente
             // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("Bookman Old Style", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(27, 263);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(104, 24);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Detalles:";
+            this.textBox_cliente.Location = new System.Drawing.Point(271, 19);
+            this.textBox_cliente.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox_cliente.Name = "textBox_cliente";
+            this.textBox_cliente.Size = new System.Drawing.Size(233, 20);
+            this.textBox_cliente.TabIndex = 6;
             // 
-            // label6
+            // textBox_cantidad
             // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Font = new System.Drawing.Font("Bookman Old Style", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(491, 179);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(183, 24);
-            this.label6.TabIndex = 5;
-            this.label6.Text = "Inserte imagen: ";
+            this.textBox_cantidad.Location = new System.Drawing.Point(271, 64);
+            this.textBox_cantidad.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox_cantidad.Name = "textBox_cantidad";
+            this.textBox_cantidad.Size = new System.Drawing.Size(57, 20);
+            this.textBox_cantidad.TabIndex = 7;
+            this.textBox_cantidad.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
-            // textBox1
+            // textBox_unidad
             // 
-            this.textBox1.Location = new System.Drawing.Point(258, 28);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(309, 22);
-            this.textBox1.TabIndex = 6;
+            this.textBox_unidad.Location = new System.Drawing.Point(344, 64);
+            this.textBox_unidad.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox_unidad.Name = "textBox_unidad";
+            this.textBox_unidad.Size = new System.Drawing.Size(98, 20);
+            this.textBox_unidad.TabIndex = 8;
             // 
-            // textBox2
+            // textBox_total
             // 
-            this.textBox2.Location = new System.Drawing.Point(258, 84);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(75, 22);
-            this.textBox2.TabIndex = 7;
+            this.textBox_total.Location = new System.Drawing.Point(271, 116);
+            this.textBox_total.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox_total.Name = "textBox_total";
+            this.textBox_total.Size = new System.Drawing.Size(141, 20);
+            this.textBox_total.TabIndex = 9;
             // 
-            // textBox3
+            // textBox_dia
             // 
-            this.textBox3.Location = new System.Drawing.Point(356, 84);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(129, 22);
-            this.textBox3.TabIndex = 8;
+            this.textBox_dia.Location = new System.Drawing.Point(271, 172);
+            this.textBox_dia.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox_dia.Name = "textBox_dia";
+            this.textBox_dia.Size = new System.Drawing.Size(30, 20);
+            this.textBox_dia.TabIndex = 10;
             // 
-            // textBox4
+            // textBox_mes
             // 
-            this.textBox4.Location = new System.Drawing.Point(258, 148);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(187, 22);
-            this.textBox4.TabIndex = 9;
+            this.textBox_mes.Location = new System.Drawing.Point(314, 172);
+            this.textBox_mes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox_mes.Name = "textBox_mes";
+            this.textBox_mes.Size = new System.Drawing.Size(30, 20);
+            this.textBox_mes.TabIndex = 11;
             // 
-            // textBox5
+            // textBox_año
             // 
-            this.textBox5.Location = new System.Drawing.Point(258, 216);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(38, 22);
-            this.textBox5.TabIndex = 10;
+            this.textBox_año.Location = new System.Drawing.Point(357, 172);
+            this.textBox_año.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox_año.Name = "textBox_año";
+            this.textBox_año.Size = new System.Drawing.Size(30, 20);
+            this.textBox_año.TabIndex = 12;
             // 
-            // textBox6
+            // Registrar_pedido
             // 
-            this.textBox6.Location = new System.Drawing.Point(316, 216);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(38, 22);
-            this.textBox6.TabIndex = 11;
+            this.Registrar_pedido.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.Registrar_pedido.Font = new System.Drawing.Font("Bookman Old Style", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Registrar_pedido.Location = new System.Drawing.Point(11, 431);
+            this.Registrar_pedido.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Registrar_pedido.Name = "Registrar_pedido";
+            this.Registrar_pedido.Size = new System.Drawing.Size(110, 54);
+            this.Registrar_pedido.TabIndex = 13;
+            this.Registrar_pedido.Text = "Registrar pedido";
+            this.Registrar_pedido.UseVisualStyleBackColor = false;
+            this.Registrar_pedido.Click += new System.EventHandler(this.Registrar_pedido_Click);
             // 
-            // textBox7
+            // button_SALIR
             // 
-            this.textBox7.Location = new System.Drawing.Point(373, 216);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(38, 22);
-            this.textBox7.TabIndex = 12;
+            this.button_SALIR.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.button_SALIR.Font = new System.Drawing.Font("Bookman Old Style", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_SALIR.Location = new System.Drawing.Point(586, 444);
+            this.button_SALIR.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button_SALIR.Name = "button_SALIR";
+            this.button_SALIR.Size = new System.Drawing.Size(110, 54);
+            this.button_SALIR.TabIndex = 14;
+            this.button_SALIR.Text = "Salir";
+            this.button_SALIR.UseVisualStyleBackColor = false;
+            this.button_SALIR.Click += new System.EventHandler(this.button_SALIR_Click);
             // 
-            // button1
+            // groupBox1
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.button1.Font = new System.Drawing.Font("Bookman Old Style", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(10, 371);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(147, 67);
-            this.button1.TabIndex = 13;
-            this.button1.Text = "Registrar pedido";
-            this.button1.UseVisualStyleBackColor = false;
+            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox1.Controls.Add(this.richTextBox_detalles);
+            this.groupBox1.Font = new System.Drawing.Font("Bookman Old Style", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(65, 210);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(209, 176);
+            this.groupBox1.TabIndex = 15;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "DETALLES:";
             // 
-            // button2
+            // groupBox2
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.button2.Font = new System.Drawing.Font("Bookman Old Style", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(558, 371);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(147, 67);
-            this.button2.TabIndex = 14;
-            this.button2.Text = "Salir";
-            this.button2.UseVisualStyleBackColor = false;
+            this.groupBox2.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox2.Controls.Add(this.pictureBox_imagen);
+            this.groupBox2.Font = new System.Drawing.Font("Bookman Old Style", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.Location = new System.Drawing.Point(429, 210);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(209, 176);
+            this.groupBox2.TabIndex = 16;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "INSERTE IMAGEN:";
+            // 
+            // richTextBox_detalles
+            // 
+            this.richTextBox_detalles.BackColor = System.Drawing.Color.White;
+            this.richTextBox_detalles.Location = new System.Drawing.Point(16, 29);
+            this.richTextBox_detalles.Name = "richTextBox_detalles";
+            this.richTextBox_detalles.Size = new System.Drawing.Size(179, 135);
+            this.richTextBox_detalles.TabIndex = 0;
+            this.richTextBox_detalles.Text = "";
+            // 
+            // pictureBox_imagen
+            // 
+            this.pictureBox_imagen.BackColor = System.Drawing.Color.White;
+            this.pictureBox_imagen.Location = new System.Drawing.Point(15, 25);
+            this.pictureBox_imagen.Name = "pictureBox_imagen";
+            this.pictureBox_imagen.Size = new System.Drawing.Size(188, 139);
+            this.pictureBox_imagen.TabIndex = 0;
+            this.pictureBox_imagen.TabStop = false;
+            // 
+            // button_imagen
+            // 
+            this.button_imagen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.button_imagen.Font = new System.Drawing.Font("Bookman Old Style", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_imagen.Location = new System.Drawing.Point(488, 392);
+            this.button_imagen.Name = "button_imagen";
+            this.button_imagen.Size = new System.Drawing.Size(106, 36);
+            this.button_imagen.TabIndex = 17;
+            this.button_imagen.Text = "INSERTAR";
+            this.button_imagen.UseVisualStyleBackColor = false;
+            this.button_imagen.Click += new System.EventHandler(this.button_imagen_Click);
             // 
             // Form4
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Sistema_de_Gestión_de_GQP.Properties.Resources.logo;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ClientSize = new System.Drawing.Size(709, 450);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox7);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
+            this.ClientSize = new System.Drawing.Size(695, 496);
+            this.Controls.Add(this.button_imagen);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.button_SALIR);
+            this.Controls.Add(this.Registrar_pedido);
+            this.Controls.Add(this.textBox_año);
+            this.Controls.Add(this.textBox_mes);
+            this.Controls.Add(this.textBox_dia);
+            this.Controls.Add(this.textBox_total);
+            this.Controls.Add(this.textBox_unidad);
+            this.Controls.Add(this.textBox_cantidad);
+            this.Controls.Add(this.textBox_cliente);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Form4";
             this.Text = "Form4";
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_imagen)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -217,16 +276,19 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox textBox_cliente;
+        private System.Windows.Forms.TextBox textBox_cantidad;
+        private System.Windows.Forms.TextBox textBox_unidad;
+        private System.Windows.Forms.TextBox textBox_total;
+        private System.Windows.Forms.TextBox textBox_dia;
+        private System.Windows.Forms.TextBox textBox_mes;
+        private System.Windows.Forms.TextBox textBox_año;
+        private System.Windows.Forms.Button Registrar_pedido;
+        private System.Windows.Forms.Button button_SALIR;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.RichTextBox richTextBox_detalles;
+        private System.Windows.Forms.PictureBox pictureBox_imagen;
+        private System.Windows.Forms.Button button_imagen;
     }
 }

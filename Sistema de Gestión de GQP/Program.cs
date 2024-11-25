@@ -22,7 +22,8 @@ namespace Sistema_de_Gestión_de_GQP
             
             admin.IniciarHiloRevisarBD();
 
-            Application.Run(new Form1(admin));
+            //Application.Run(new Form1(admin));
+            Application.Run(new Form3());
 
 
         }

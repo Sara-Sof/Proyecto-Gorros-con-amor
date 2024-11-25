@@ -22,6 +22,7 @@ namespace Sistema_de_Gestión_de_GQP
             InitializeComponent();
 
             this.superUsuario = admin;
+            PANEL_BIENVENIDO.Visible = false;
 
             // Bitmap img = new Bitmap(Application.StartupPath+@"\img\logo.png");
             //this.BackgroundImage = img;
@@ -51,11 +52,8 @@ namespace Sistema_de_Gestión_de_GQP
             // Validar las credenciales
             if (superUsuario.autentificacion(usuario, contrasena))
             {
-                MessageBox.Show("Acceso concedido. Bienvenida, Maryu.");
-
-                this.Hide();
-                Form2 form2 = new Form2();
-                form2.Show();
+                PANEL_BIENVENIDO.Visible = true;
+                labelBienvenida.Text = $"¡Bienvenido, {usuario}!";
             }
             else
             {
@@ -102,6 +100,14 @@ namespace Sistema_de_Gestión_de_GQP
 
             // Detiene el hilo al cerrar la aplicación
             superUsuario.DetenerHilo();
+        }
+
+        private void boton_Gracias_Click(object sender, EventArgs e)
+        {
+
+            PANEL_BIENVENIDO.Visible = false;
+            Form2 form2 = new Form2();
+            form2.Show();
         }
     }
 }
